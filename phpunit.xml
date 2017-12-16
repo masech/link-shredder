@@ -1,0 +1,12 @@
+<phpunit bootstrap="./vendor/autoload.php">
+  <testsuites>
+    <testsuite name="link-shredder">
+      <file>tests/AddPathTest.php</file>
+      <file>tests/CalculateOffsetTest.php</file>
+      <file>tests/ClientStateTest.php</file>
+      <file>tests/ConvertToIdTest.php</file>
+      <file>tests/ConvertToPathTest.php</file>
+      <file>tests/ValidateUriTest.php</file>
+    </testsuite>
+  </testsuites>
+</phpunit>

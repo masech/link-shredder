@@ -1,0 +1,131 @@
+body {
+  font-family: Georgia;
+  font-size: 16px;
+  margin: 0 auto;   /* center content */
+  max-width: 1000px; /* limit width */
+  background-color: #a0d6e8;
+  background: linear-gradient(to top, #2b3442 0%, #a0d6e8 90%);
+}
+
+html {
+  height: 100%;
+}
+
+div.error {
+  font-size: 14px;
+  font-weight: bold;
+  padding: 2px;
+  border-radius: 3px; 
+  color: white;
+  background-color: red;
+  display: inline-block;
+}
+
+div.current {
+  width: inherit;
+  max-width: inherit;
+  position: absolute;
+  top: 145px;
+  height: 45px;
+  padding-top: 5px;
+  border-radius: 3px;
+  background-color: #e3e4e5;
+}
+
+div.previous {
+  width: inherit;
+  position: absolute;
+  top: 200px;
+  padding-top: 5px;
+  border-radius: 3px;
+  background-color: white;
+}
+
+div.row {
+  width: inherit;
+  max-width: inherit;
+  height: 32px;
+  margin-top: 7px;
+  margin-bottom: 7px;
+  padding-left: 3px;
+}
+
+div.navigation {
+  width: inherit;
+  max-width: inherit;
+}
+
+input[type="text"] {
+  width: 340px;
+}
+
+input[type="submit"] {
+  float: right;
+}
+
+h1, h3 {
+  font-weight: normal;
+}
+
+p.current {
+  font-size: 16px;
+  margin-bottom: 5px;
+  text-align: center;
+  background-color: 
+}
+
+p.clip-current {
+  white-space: nowrap;
+  overflow: hidden;
+  max-width: inherit;
+  text-overflow: ellipsis;
+  text-align: center;
+  font-size: 14px;
+  padding-left: 3px;
+  color: grey;
+}
+
+p.clip-previous {
+  white-space: nowrap;
+  overflow: hidden;
+  max-width: inherit;
+  text-overflow: ellipsis;
+  color: grey;
+  font-size: 12px;
+}
+
+p {
+  margin-top: 0;
+  margin-bottom: 0;
+  font-size: 14px;
+}
+
+form, table {
+  width: inherit;
+  max-width: inherit;
+}
+
+.decor {
+  text-decoration: none;
+}
+
+.not-found {
+  margin-top: 80px;
+}
+
+.treatment {
+  margin-top: 75px;
+  text-align: center;
+}
+
+#header {
+  margin-top: 50px;
+  margin-bottom: 25px;
+  text-align: center;
+}
+
+#main {
+  max-width: 430px;
+  width: 430px;
+  margin: inherit;
+}

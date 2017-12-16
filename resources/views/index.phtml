@@ -1,0 +1,91 @@
+<!DOCTYPE HTML>
+<html>
+ <head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="/stylesheets/style.css" type="text/css">
+  <title>Link-shredder</title>
+ </head>
+ <body link="#2b3442" vlink="#2b3442">
+
+    <div id="header">
+        <a class="decor" href="/"><h1>Link-shredder</h1></a>
+    </div>
+
+     
+    <div id="main">
+         
+        <?php list($previous, $position, $currentPageNum, $totalPages) = $page ?>
+
+        <form action="/shorten?direction=inplace&current=<?= $position ?>" method="post">
+            <input type="text" name="uri" maxlength="2048" value="<?= $invalidUri ?>" placeholder="Input a link">
+            <input type="submit" value="Shorten">
+        </form>
+
+        <?php if (strlen($error) != 0) : ?>
+            <div class="error">
+                <?= $error ?>
+            </div>
+        <?php endif ?>
+
+        <?php if (!empty($shortening)) : ?>
+            <?php list($uri, $shortLink) = $shortening ?>
+            <div class="current">
+                <p class="current"><?= $shortLink ?></p>
+                <p class="clip-current"><?= htmlspecialchars($uri) ?></p>
+            </div>
+        <?php endif ?>
+
+        <?php if (!empty($previous)) : ?>
+            <?php $prevOnPage = $position == 0 ? $previous : array_pad($previous, 10, [' ', ' ']) ?>
+            <div class="previous">
+                <?php foreach ($prevOnPage as $prevShortening) : ?>
+                    <?php list($uri, $shortLink) = $prevShortening ?>
+                    <div class="row">
+                        <p><?= $shortLink ?></p>
+                        <p class="clip-previous"><?= htmlspecialchars($uri) ?></p>
+                    </div>
+                <?php endforeach ?>
+
+                <?php if ($totalPages > 1) : ?>
+                    <div class="navigation">
+                        <hr align="center" width="70%" color="grey">
+                        <table>
+                            <tr>
+                                <td width="38%" align="right">
+                                    <?php if ($currentPageNum != 1 && $totalPages > 2) : ?>
+                                        <a href="/?direction=first&current=<?= $position ?>">first</a>
+                                    <?php endif ?>
+                                </td>
+                                <td width="5%" align="right">
+                                    <?php if ($currentPageNum != 1) : ?>
+                                        <a class="decor" href="/?direction=prev&current=<?= $position ?>">
+                                            <
+                                        </a>
+                                    <?php endif ?>
+                                </td>
+                                <td width="14%" align="center">
+                                    <?= $currentPageNum ?>/<?= $totalPages ?>
+                                </td>
+                                <td width="5%" align="left">
+                                    <?php if ($currentPageNum != $totalPages) : ?>
+                                        <a class="decor" href="/?direction=next&current=<?= $position ?>">
+                                            >    
+                                        </a>
+                                    <?php endif ?>
+                                </td>
+                                <td width="38%" align="left">
+                                    <?php if ($currentPageNum != $totalPages && $totalPages > 2) : ?>
+                                        <a href="/?direction=last&current=<?= $position ?>">last</a>
+                                    <?php endif ?>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                <?php endif ?>
+            </div>
+        <?php endif ?>
+
+    </div>
+
+ </body>
+</html>
