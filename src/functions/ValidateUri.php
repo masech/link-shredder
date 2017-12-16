@@ -26,7 +26,7 @@ function validateUri($uri, $ownUri)
     $regExp1 = '/^([0-9a-zA-Z-_\.]*@)?([^`~!@#$%^&*()_=+[\]{}\\\\|;:"\',<>\/? ]{3,})(:[\d]+)?([\/]+.*)?$/';
 
     // search pattern for validation on correct a host
-    $regExp2 = '/^\..+|\.{2,}|.+\.$/';
+    $regExp2 = '/(^\..+|\.{2,}|.+\.$)|(^-.*|.*-$)|(.+\.-|-\..+)/';
 
     if (preg_match($regExp, $uri, $matches)) {
         if (in_array($matches[2], $schemes) && !preg_match($regExp2, $matches[4])) {

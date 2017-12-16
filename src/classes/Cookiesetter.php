@@ -3,7 +3,7 @@
 namespace Lish;
 
 /**
- * Class-wrapper around setcookie function for testability of instances ClientState class
+ * Class-wrapper around setcookie function for testability of instances ClientState class.
  */
 class Cookiesetter
 {
